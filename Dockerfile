@@ -1,5 +1,5 @@
 
-FROM rancher/kubectl:v1.20.2
+FROM bitnami/kubectl:1.20
 
-ADD https://raw.githubusercontent.com/disaster37/che-scripts/master/alpine.sh /tmp/alpine.sh
-RUN sh /tmp/alpine.sh
+ADD https://raw.githubusercontent.com/disaster37/che-scripts/master/debian.sh /tmp/debian.sh
+RUN sh /tmp/debian.sh
