@@ -9,7 +9,15 @@ RUN sh /tmp/debian.sh
 # Install nodejs and chectl
 RUN \
     apt-get update &&\
-    apt-get install -y --no-install-recommends nodejs &&\
-    bash -c "bash <(curl -sL  https://www.eclipse.org/che/chectl/)" &&\
+    apt-get install -y --no-install-recommends nodejs
+
+# Install chectl
+USER theia
+RUN \
+    bash -c "bash <(curl -sL  https://www.eclipse.org/che/chectl/)"
+
+# Clean
+USER root
+RUN \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
