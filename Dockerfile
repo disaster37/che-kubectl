@@ -19,4 +19,6 @@ RUN bash -c "bash <(curl -sL  https://www.eclipse.org/che/chectl/)"
 
 # Clean
 USER root
-RUN rm -rf /var/cache/apk/*
+RUN \
+    rm -rf /home/theia/.cache &&\
+    rm -rf /var/cache/apk/*
