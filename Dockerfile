@@ -3,7 +3,8 @@ FROM alpine:3.14
 
 ENV KUBECTL_VERSION="v1.18.6" \
     OC_VERSION="4.3.3" \
-    HELM_VERSION="v3.6.3"
+    HELM_VERSION="v3.6.3" \
+    RANCHER_VERSION="v2.4.6"
 
 
 ADD https://raw.githubusercontent.com/disaster37/che-scripts/master/alpine.sh /tmp/alpine.sh
@@ -19,7 +20,10 @@ RUN \
     chmod +x /usr/local/bin/oc &&\
     echo "Install helm" &&\
     curl -o- -L https://get.helm.sh/helm-${HELM_VERSION}-linux-amd64.tar.gz | tar xvz -C /usr/local/bin helm &&\
-    chmod +x /usr/local/bin/helm
+    chmod +x /usr/local/bin/helm &&\
+    echo "Install rancher" &&\
+    curl -o- -L curl -L https://github.com/rancher/cli/releases/download/${RANCHER_VERSION}/rancher-linux-amd64-${RANCHER_VERSION}.tar.gz | tar xvz -C /usr/local/bin rancher &&\
+    chmod +x /usr/local/bin/rancher
     
 
 # Install chectl
