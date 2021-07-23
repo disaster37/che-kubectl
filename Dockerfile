@@ -3,7 +3,7 @@ FROM alpine:3.14
 
 ENV KUBECTL_VERSION="v1.18.6" \
     OC_VERSION="4.3.3" \
-    HELM_VERSION="v3.6.3" \
+    HELM_VERSION="v3.6.3"
 
 
 ADD https://raw.githubusercontent.com/disaster37/che-scripts/master/alpine.sh /tmp/alpine.sh
